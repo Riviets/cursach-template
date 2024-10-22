@@ -1,0 +1,52 @@
+.course{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-width: 520px;
+    border: 1px solid #C4B8B8;
+    padding: 45px 39px;
+    transition: transform .3s;
+    background-color: #FFFFFF;
+    &__img{
+        max-width: 442px;
+        margin-bottom: 50px;
+    }
+    &__progress{
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    &__category{
+        font-weight: 300;
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+    &__title{
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    &__details{
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    &__rating{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-weight: 600;
+        &-img{
+            max-width: 30px;
+        }
+    }
+    &__description{
+        font-size: 16px;
+        max-width: 442px;
+        line-height: 1.2;
+    }
+    &:hover{
+        transform: scale(1.05);
+    }
+}

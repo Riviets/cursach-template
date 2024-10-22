@@ -1,0 +1,52 @@
+@import 'reset';
+@import 'header';
+@import 'course';
+@import 'mycourses';
+
+body{
+    font-family: 'Montserrat';
+}
+
+a{
+    cursor: pointer;
+}
+
+.container{
+    max-width: 1730px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+.title{
+    font-size: 50px;
+    margin-bottom: 98px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.socials{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.footer{
+    background-color: #2c2a30;
+    padding: 55px 0;
+    color: #ffffff;
+    &__inner{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__list{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        font-size: 24px;
+        text-align: left;
+    }
+    .logo{
+        max-width: 145px;
+    }
+}

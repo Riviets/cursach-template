@@ -1,6 +1,6 @@
 import React from 'react';
-import courseImg from './images/course-img.jpg';
-import rating from './images/rating.svg';
+import courseImg from '../images/course-img.jpg';
+import rating from '../images/rating.svg';
 
 const allCoursesData = [
     {

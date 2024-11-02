@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import courseImg from './images/course-img.jpg';
-import rating from './images/rating.svg';
+import courseImg from '../images/course-img.jpg';
+import rating from '../images/rating.svg';
 
 const coursesData = [
     {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import './scss/styles.css';
-import courseImg from './images/course-img-large.jpg';
-import teacherImg from './images/teacher.png';
-import lessonImg from './images/lesson-img.jpg';
+import '../scss/styles.css';
+import courseImg from '../images/course-img-large.jpg';
+import teacherImg from '../images/teacher.png';
+import lessonImg from '../images/lesson-img.jpg';
 
 function CourseDescription() {
     const { id } = useParams();

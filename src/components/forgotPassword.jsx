@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
-import logo from './images/logo.svg';
-import bellNotification from './images/bell-notification.png';
-import shieldLock from './images/shield-lock.png';
-import emailIcon from './images/email-icon.png';
+import logo from '../images/logo.svg';
+import bellNotification from '../images/bell-notification.png';
+import shieldLock from '../images/shield-lock.png';
+import emailIcon from '../images/email-icon.png';
 
 function EmailStep() {
     const navigate = useNavigate();

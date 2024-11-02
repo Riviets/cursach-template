@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, useLocation, NavLink, Outlet } from 'react-router-dom';
-import logo from './images/logo.svg'
-import settings from './images/settings.svg'
-import pfp from './images/pfp.jpg'
-import './scss/styles.css'
+import logo from '../images/logo.svg'
+import settings from '../images/settings.svg'
+import pfp from '../images/pfp.jpg'
+import '../scss/styles.css'
 
 function ProfileHeader(){
     return(

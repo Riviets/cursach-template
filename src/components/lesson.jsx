@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import linkIcon from "./images/linkIcon.svg"    
-import downloadIcon from "./images/downloadIcon.svg"
-import testVideo from './GOT intro.mp4'
+import linkIcon from "../images/linkIcon.svg"    
+import downloadIcon from "../images/downloadIcon.svg"
+import testVideo from '../GOT intro.mp4'
 
 function LessonAsideMenu() {
     return (

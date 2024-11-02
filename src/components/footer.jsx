@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from './images/logo.svg';
-import inst from './images/socials/inst.svg';
-import fb from './images/socials/fb.svg';
-import youtube from './images/socials/youtube.svg';
-import './scss/styles.css';
+import logo from '../images/logo.svg';
+import inst from '../images/socials/inst.svg';
+import fb from '../images/socials/fb.svg';
+import youtube from '../images/socials/youtube.svg';
+import '../scss/styles.css';
 
 function Footer() {
     return (

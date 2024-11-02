@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from './images/logo.svg';
-import search from './images/search.svg';
-import pfp from './images/pfp.jpg'
-import './scss/styles.css';
+import logo from '../images/logo.svg';
+import search from '../images/search.svg';
+import pfp from '../images/pfp.jpg'
+import '../scss/styles.css';
 
 function Header() {
     const location = useLocation();

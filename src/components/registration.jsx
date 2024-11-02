@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
-import logo from './images/logo.svg';
-import registration from './images/registration.png';
-import eyeClosedIcon from './images/eye-closed.svg';
-import eyeOpenedIcon from './images/eye-opened.svg';
-import Login from './login'
+import logo from '../images/logo.svg';
+import registration from '../images/registration.png';
+import eyeClosedIcon from '../images/eye-closed.svg';
+import eyeOpenedIcon from '../images/eye-opened.svg';
 
 function RegistrationStepOne() {
     const navigate = useNavigate();

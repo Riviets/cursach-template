@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import logo from './images/logo.svg';
-import loginImage from './images/registration.png';
-import eyeClosedIcon from './images/eye-closed.svg';
-import eyeOpenedIcon from './images/eye-opened.svg';
+import logo from '../images/logo.svg';
+import loginImage from '../images/registration.png';
+import eyeClosedIcon from '../images/eye-closed.svg';
+import eyeOpenedIcon from '../images/eye-opened.svg';
 
 function Login() {
     const navigate = useNavigate();

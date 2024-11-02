@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './layout';
-import EmptyLayout from './EmptyLayout';
-import UserCourses from './userCourses';
-import AllCourses from './allCourses';
-import Profile, { BasicInfo, Password, Payments, Contacts } from './profile'; 
-import Course from './course';
-import Lesson from './lesson';
-import Registration from './registration';
-import Login from './login';
-import ForgotPassword from './forgotPassword';
+import Layout from './components/layout';
+import EmptyLayout from './components/EmptyLayout';
+import UserCourses from './components/userCourses';
+import AllCourses from './components/allCourses';
+import Profile, { BasicInfo, Password, Payments, Contacts } from './components/profile'; 
+import Course from './components/course';
+import Lesson from './components/lesson';
+import Registration from './components/registration';
+import Login from './components/login';
+import ForgotPassword from './components/forgotPassword';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

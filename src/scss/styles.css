@@ -61,6 +61,7 @@ a {
 input {
   background-color: transparent;
   border: none;
+  cursor: pointer !important;
 }
 
 .header {
@@ -86,6 +87,12 @@ input {
 .header__list-item:hover {
   transform: scale(1.05);
 }
+.header__list-item .active {
+  border-bottom: 8px solid #ED9B00;
+}
+.header__list-link {
+  padding-bottom: 20px;
+}
 .header__search {
   display: flex;
   align-items: center;
@@ -109,22 +116,23 @@ input {
 .header__search-input:focus {
   border: none;
 }
-.header__profile {
-  display: flex;
-  align-items: center;
-  gap: 44px;
-}
-.header__profile-img {
-  border-radius: 50%;
-  max-width: 88px;
-}
-.header__profile-name {
-  font-size: 28px;
-}
 .header .logo {
   max-width: 120px;
   max-height: 120px;
   margin-right: 67px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
+.profile-img {
+  border-radius: 50%;
+  max-width: 88px;
+}
+.profile-name {
+  font-size: 28px;
 }
 
 .course {
@@ -180,41 +188,244 @@ input {
   transform: scale(1.05);
 }
 
+.course-info {
+  padding: 35px 0;
+}
+.course__nav-list {
+  display: flex;
+  justify-content: space-between;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 36px;
+  font-weight: 600;
+  color: #df9100;
+}
+.course__nav-item {
+  cursor: pointer;
+}
+
+.course-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 130px 0;
+}
+.course-description__category {
+  font-size: 40px;
+  margin-bottom: 35px;
+}
+.course-description__title {
+  font-size: 96px;
+  margin-bottom: 50px;
+  font-weight: 600;
+}
+.course-description__content {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  font-size: 22px;
+  margin-bottom: 50px;
+}
+.course-description__details {
+  font-size: 26px;
+  line-height: 1.3;
+  max-width: 1200px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.course-description__img {
+  border-radius: 128px;
+  border-bottom-right-radius: 0px;
+  margin-bottom: 90px;
+}
+.course-description__teachers {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1400px;
+}
+.course-description__teachers-title {
+  font-size: 48px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  -moz-text-align-last: center;
+       text-align-last: center;
+}
+.course-description__teacher {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  font-size: 36px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  transition: transform 0.3s;
+  box-shadow: 4px 4px 5px #cccccc;
+  cursor: pointer;
+}
+.course-description__teacher:hover {
+  transform: scale(1.05);
+}
+.course-description__teacher-name {
+  padding: 30px 10px 60px 10px;
+}
+.course-description__teacher-img {
+  width: 400px;
+  height: 500px;
+  border-bottom: 2px solid #000000;
+  border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
 .mycourses {
   padding: 130px 0 290px;
   background-color: #FFEFE0;
 }
 
-body {
-  font-family: "Montserrat";
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: start;
+  background-color: #EAD7C5;
 }
-
-a {
-  cursor: pointer;
-}
-
-.container {
-  max-width: 1730px;
-  padding: 0 10px;
+.profile-container {
+  width: 100%;
+  max-width: 1920px;
   margin: 0 auto;
 }
-
-.title {
-  font-size: 50px;
-  margin-bottom: 98px;
-  font-weight: 600;
-  text-align: left;
+.profile-content {
+  display: flex;
 }
-
-.socials {
+.profile-header {
+  width: 100%;
+  background-color: #F6C25F;
+}
+.profile-header__inner {
   display: flex;
   align-items: center;
-  gap: 24px;
+  padding: 60px 0;
+}
+.profile-header .logo {
+  margin-right: 88px;
+}
+.profile-header__img {
+  margin-right: 35px;
+  margin-bottom: -20px;
+}
+.profile-header__text {
+  margin-bottom: -20px;
+  font-weight: 600;
+  font-size: 60px;
+}
+.profile-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+  font-size: 32px;
+  padding: 50px;
+  background-color: #EAD7C5;
+  width: 100%;
+  max-width: 600px;
+  border-right: 5px solid #FFEFE0;
+}
+.profile-aside__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.profile-aside__menu-item {
+  position: relative;
+}
+.profile-aside__menu-item::before {
+  content: "";
+  height: 4px;
+  width: 400px;
+  background-color: #ABA29A;
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+}
+.profile-aside__menu-item:last-child::before {
+  content: none;
+}
+.profile-aside__menu-link {
+  border-radius: 10px;
+  padding: 10px;
+}
+.profile-aside__menu-link.active {
+  background-color: #ED9B00;
+}
+.profile-item {
+  min-height: 740px;
+  padding: 55px 70px;
+}
+.profile-item__form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.profile-item__form-label {
+  font-size: 32px;
+  font-weight: 600;
+}
+.profile-item__form-input {
+  min-width: 1050px;
+  padding: 18px 30px;
+  min-height: 50px;
+  background-color: #F2F2F2;
+  margin-top: 14px;
+  border-radius: 18px;
+  font-size: 36px;
+}
+.profile-item__form-btn {
+  max-width: 320px;
+}
+
+.pfp {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
+.pfp-img {
+  border-radius: 50%;
+  border: 4px solid #ABA29A;
+  max-width: 88px;
+}
+.pfp-name {
+  font-size: 28px;
+}
+
+.change-pfp {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 28px;
+  gap: 38px;
+  margin-bottom: 72px;
+}
+.change-pfp__text {
+  margin-bottom: 26px;
+}
+.change-pfp__img {
+  border-radius: 50%;
+  border: 6px solid #ABA29A;
+  min-width: 130px;
+}
+.change-pfp__btn {
+  font-size: 22px;
+  padding: 16px 26px;
+  background-color: #F5EFEF;
+  border-radius: 12px;
+  border: 1px solid #C4B8B8;
 }
 
 .footer {
   background-color: #2c2a30;
-  padding: 55px 0;
+  padding: 80px 0;
   color: #ffffff;
 }
 .footer__inner {
@@ -231,4 +442,551 @@ a {
 }
 .footer .logo {
   max-width: 145px;
+}
+
+.course-modules {
+  padding: 65px 0;
+}
+
+.module {
+  font-weight: 500;
+  margin-bottom: 80px;
+  border: 1px solid #948686;
+  box-shadow: 3px 3px 15px #cccccc;
+}
+.module__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FFFEFD;
+  padding: 32px 45px;
+  font-size: 16px;
+  border-bottom: 1px solid #948686;
+}
+.module__info {
+  display: flex;
+  gap: 28px;
+}
+.module__stats {
+  display: flex;
+  gap: 26px;
+}
+.module__toggle {
+  font-size: 20px;
+}
+.module__description {
+  font-size: 18px;
+  background-color: #F7E0C4;
+  padding: 41px 45px;
+  border-bottom: 1px solid #948686;
+}
+.module__description-text {
+  max-width: 1300px;
+}
+
+.lesson {
+  display: flex;
+  gap: 70px;
+  background-color: #FFFEFD;
+  padding: 48px 50px;
+  border-bottom: 1px solid #948686;
+}
+.lesson__content {
+  display: flex;
+  flex-direction: column;
+}
+.lesson__name {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+.lesson__description {
+  font-size: 20px;
+  margin-bottom: auto;
+  line-height: 1.6;
+}
+.lesson__material-link {
+  display: flex;
+  gap: 26px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.login {
+  padding: 46px 0;
+}
+.login__logo {
+  display: inline-block;
+  margin-bottom: 40px;
+}
+.login__logo-img {
+  width: 90px;
+  height: auto;
+}
+.login__title {
+  font-size: 60px;
+  font-weight: 600;
+  margin-bottom: 140px;
+  text-align: center;
+}
+.login__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 114px;
+}
+.login__img {
+  max-width: 600px;
+  margin-top: -250px;
+}
+.login__account-check {
+  text-align: center;
+  font-size: 32px;
+}
+.login__account-text {
+  margin-right: 8px;
+  color: #888;
+}
+.login__register-link {
+  color: #F59256;
+  text-decoration: none;
+}
+.login__register-link:hover {
+  text-decoration: underline;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 923px;
+  margin: 0 auto;
+}
+.login-form__item {
+  margin-bottom: 60px;
+}
+.login-form__label {
+  display: block;
+  margin-bottom: 26px;
+  font-weight: 500;
+  font-size: 40px;
+}
+.login-form__input {
+  width: 100%;
+  max-width: 923px;
+  padding: 22px 34px;
+  color: #000000;
+  font-size: 40px;
+  border: 1px solid #000000;
+  background-color: #F2F2F2;
+  border-radius: 20px;
+}
+.login-form__input::-moz-placeholder {
+  color: #A49F9F;
+}
+.login-form__input::placeholder {
+  color: #A49F9F;
+}
+.login-form__password-wrapper {
+  position: relative;
+}
+.login-form__password-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.login-form__eye-icon {
+  fill: #888;
+  transition: fill 0.3s ease;
+}
+.login-form__eye-icon:hover {
+  fill: #111;
+}
+.login-form__forgot-link {
+  font-size: 36px;
+  display: block;
+  text-align: right;
+  margin-bottom: 73px;
+}
+.login-form__btn {
+  padding: 28px 99px;
+  background-color: #ED9B00;
+  color: white;
+  border-radius: 40px;
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 136px;
+  transition: background-color 0.3s ease;
+}
+.login-form__btn:hover {
+  background-color: #ba7a00;
+}
+
+.forgot-password {
+  padding: 46px 0;
+}
+.forgot-password__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.forgot-password__logo {
+  display: inline-block;
+  margin-bottom: 40px;
+}
+.forgot-password__logo-img {
+  width: 90px;
+  height: auto;
+}
+.forgot-password__title {
+  font-size: 60px;
+  font-weight: 600;
+  margin-bottom: 140px;
+  text-align: center;
+}
+.forgot-password__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 114px;
+  margin-bottom: 136px;
+}
+.forgot-password__form-container {
+  flex: 1;
+}
+.forgot-password__image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.forgot-password__img {
+  max-width: 600px;
+  margin-top: -250px;
+}
+
+.forgot-form {
+  width: 100%;
+  max-width: 923px;
+}
+.forgot-form__item {
+  margin-bottom: 60px;
+}
+.forgot-form__item:last-of-type {
+  margin-bottom: 73px;
+}
+.forgot-form__label {
+  display: block;
+  margin-bottom: 26px;
+  font-weight: 500;
+  font-size: 40px;
+}
+.forgot-form__input {
+  width: 100%;
+  max-width: 923px;
+  padding: 22px 34px;
+  color: #000000;
+  font-size: 40px;
+  border: 1px solid #000000;
+  background-color: #F2F2F2;
+  border-radius: 20px;
+}
+.forgot-form__input::-moz-placeholder {
+  color: #A49F9F;
+}
+.forgot-form__input::placeholder {
+  color: #A49F9F;
+}
+.forgot-form__hint {
+  margin-top: 12px;
+  color: #888;
+  font-size: 32px;
+}
+.forgot-form__btn {
+  padding: 28px 99px;
+  background-color: #ED9B00;
+  color: white;
+  border-radius: 40px;
+  font-size: 36px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.forgot-form__btn:hover {
+  background-color: #ba7a00;
+}
+
+.registration {
+  padding: 46px 0;
+}
+.registration__content {
+  display: flex;
+  justify-content: space-between;
+  gap: 114px;
+  margin-bottom: 40px;
+}
+.registration__form-container {
+  flex: 1;
+  max-width: 923px;
+}
+.registration__image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.registration__logo {
+  display: inline-block;
+  margin-bottom: 40px;
+}
+.registration__logo-img {
+  width: 90px;
+  height: auto;
+}
+.registration__title {
+  font-size: 60px;
+  font-weight: 600;
+  margin-bottom: 140px;
+  text-align: center;
+}
+.registration__img {
+  max-width: 600px;
+}
+.registration__account-check {
+  text-align: center;
+  font-size: 32px;
+}
+.registration__account-text {
+  margin-right: 8px;
+  color: #888;
+}
+.registration__login-link {
+  color: #F59256;
+  text-decoration: none;
+}
+.registration__login-link:hover {
+  text-decoration: underline;
+}
+
+.registration-form {
+  width: 100%;
+}
+.registration-form__item {
+  margin-bottom: 60px;
+}
+.registration-form__item:last-child {
+  margin-bottom: 40px;
+}
+.registration-form__label {
+  display: block;
+  margin-bottom: 26px;
+  font-weight: 500;
+  font-size: 40px;
+}
+.registration-form__input {
+  width: 100%;
+  padding: 22px 34px;
+  color: #000000;
+  font-size: 40px;
+  border: 1px solid #000000;
+  background-color: #F2F2F2;
+  border-radius: 20px;
+}
+.registration-form__input::-moz-placeholder {
+  color: #A49F9F;
+}
+.registration-form__input::placeholder {
+  color: #A49F9F;
+}
+.registration-form__password-wrapper {
+  position: relative;
+}
+.registration-form__password-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.registration-form__eye-icon {
+  fill: #888;
+  transition: fill 0.3s ease;
+}
+.registration-form__eye-icon:hover {
+  fill: #111;
+}
+.registration-form__buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.registration-form__btn, .registration-form__btn--back {
+  padding: 28px 99px;
+  background-color: #ED9B00;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  font-size: 36px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.registration-form__btn:hover, .registration-form__btn--back:hover {
+  background-color: #ba7a00;
+}
+.registration-form__btn--back {
+  background-color: transparent;
+  border: 2px solid #ED9B00;
+  color: #ED9B00;
+}
+.registration-form__btn--back:hover {
+  background-color: rgba(237, 155, 0, 0.1);
+}
+
+body {
+  font-family: "Montserrat";
+  background-color: #FFEFE0;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1730px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.btn {
+  color: #ffffff;
+  background-color: #ED9B00;
+  font-size: 32px;
+}
+
+.title {
+  font-size: 50px;
+  margin-bottom: 98px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.all-courses {
+  padding: 130px 0;
+}
+
+.courses-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 75px;
+}
+
+.btn {
+  font-size: 30px;
+  color: #FFFFFF;
+  padding: 27px 35px;
+  background-color: #ED9B00;
+  border-radius: 24px;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+video {
+  height: 720px;
+  width: 1280px;
+}
+
+.lesson-component {
+  padding: 60px 0;
+}
+.lesson-component__content {
+  display: flex;
+  gap: 58px;
+  justify-content: space-between;
+  margin-bottom: 44px;
+}
+
+.lesson-info {
+  background-color: #ffffff;
+  padding: 45px 50px;
+  max-width: 1180px;
+}
+.lesson-info__title {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.lesson-info__description {
+  font-size: 24px;
+  margin-bottom: 90px;
+}
+.lesson-info__resources {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-size: 24px;
+  margin-bottom: 80px;
+}
+.lesson-info__link, .lesson-info__download {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lesson-info__icon {
+  width: 100%;
+  max-width: 45px;
+}
+.lesson-info__button {
+  padding: 18px 92px;
+}
+
+.lesson-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #fff;
+  width: 100%;
+  min-width: 412px;
+  padding: 20px 14px;
+  border: 1px solid #C4B8B8;
+}
+.lesson-aside__module {
+  padding: 34px 24px;
+}
+.lesson-aside__title {
+  font-size: 32px;
+  margin-bottom: 23px;
+  margin-right: -14px;
+  font-weight: 600;
+}
+.lesson-aside__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.lesson-aside__lesson {
+  font-size: 20px;
+  padding: 34px 24px;
+  background-color: #F8F5F5;
+  border: 1px solid #C4B8B8;
+}
+.lesson-aside__lesson-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }/*# sourceMappingURL=styles.css.map */

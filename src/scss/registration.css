@@ -1,0 +1,129 @@
+.registration {
+  padding: 46px 0;
+}
+.registration__content {
+  display: flex;
+  justify-content: space-between;
+  gap: 114px;
+  margin-bottom: 40px;
+}
+.registration__form-container {
+  flex: 1;
+  max-width: 923px;
+}
+.registration__image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.registration__logo {
+  display: inline-block;
+  margin-bottom: 40px;
+}
+.registration__logo-img {
+  width: 90px;
+  height: auto;
+}
+.registration__title {
+  font-size: 60px;
+  font-weight: 600;
+  margin-bottom: 140px;
+  text-align: center;
+}
+.registration__img {
+  max-width: 600px;
+}
+.registration__account-check {
+  text-align: center;
+  font-size: 32px;
+}
+.registration__account-text {
+  margin-right: 8px;
+  color: #888;
+}
+.registration__login-link {
+  color: #F59256;
+  text-decoration: none;
+}
+.registration__login-link:hover {
+  text-decoration: underline;
+}
+
+.registration-form {
+  width: 100%;
+}
+.registration-form__item {
+  margin-bottom: 60px;
+}
+.registration-form__item:last-child {
+  margin-bottom: 40px;
+}
+.registration-form__label {
+  display: block;
+  margin-bottom: 26px;
+  font-weight: 500;
+  font-size: 40px;
+}
+.registration-form__input {
+  width: 100%;
+  padding: 22px 34px;
+  color: #000000;
+  font-size: 40px;
+  border: 1px solid #000000;
+  background-color: #F2F2F2;
+  border-radius: 20px;
+}
+.registration-form__input::-moz-placeholder {
+  color: #A49F9F;
+}
+.registration-form__input::placeholder {
+  color: #A49F9F;
+}
+.registration-form__password-wrapper {
+  position: relative;
+}
+.registration-form__password-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.registration-form__eye-icon {
+  fill: #888;
+  transition: fill 0.3s ease;
+}
+.registration-form__eye-icon:hover {
+  fill: #111;
+}
+.registration-form__buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.registration-form__btn, .registration-form__btn--back {
+  padding: 28px 99px;
+  background-color: #ED9B00;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  font-size: 36px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.registration-form__btn:hover, .registration-form__btn--back:hover {
+  background-color: #ba7a00;
+}
+.registration-form__btn--back {
+  background-color: transparent;
+  border: 2px solid #ED9B00;
+  color: #ED9B00;
+}
+.registration-form__btn--back:hover {
+  background-color: rgba(237, 155, 0, 0.1);
+}/*# sourceMappingURL=registration.css.map */

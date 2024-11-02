@@ -1,0 +1,129 @@
+.login {
+    padding: 46px 0;
+
+    &__logo {
+        display: inline-block;
+        margin-bottom: 40px;
+    }
+
+    &__logo-img {
+        width: 90px;
+        height: auto;
+    }
+
+    &__title {
+        font-size: 60px;
+        font-weight: 600;
+        margin-bottom: 140px;
+        text-align: center;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 114px;
+    }
+
+    &__img {
+        max-width: 600px;
+        margin-top: -250px;
+    }
+
+    &__account-check {
+        text-align: center;
+        font-size: 32px;
+    }
+
+    &__account-text {
+        margin-right: 8px;
+        color: #888;
+    }
+
+    &__register-link {
+        color: #F59256;
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+}
+
+.login-form {
+    width: 100%;
+    max-width: 923px;
+    margin: 0 auto;
+
+    &__item {
+        margin-bottom: 60px;
+    }
+
+    &__label {
+        display: block;
+        margin-bottom: 26px;
+        font-weight: 500;
+        font-size: 40px;
+    }
+
+    &__input {
+        width: 100%;
+        max-width: 923px;
+        padding: 22px 34px;
+        color: #000000;
+        font-size: 40px;
+        border: 1px solid #000000;
+        background-color: #F2F2F2;
+        border-radius: 20px;
+        &::placeholder{
+            color: #A49F9F;
+        }
+    }
+
+    &__password-wrapper {
+        position: relative;
+    }
+
+    &__password-toggle {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    &__eye-icon {
+        fill: #888;
+        transition: fill 0.3s ease;
+
+        &:hover {
+            fill: #111;
+        }
+    }
+
+    &__forgot-link {
+        font-size: 36px;
+        display: block;
+        text-align: right;
+        margin-bottom: 73px;
+    }
+
+    &__btn {
+        padding: 28px 99px;
+        background-color: #ED9B00;
+        color: white;
+        border-radius: 40px;
+        font-size: 36px;
+        font-weight: 500;
+        margin-bottom: 136px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: darken(#ED9B00, 10%);
+        }
+    }
+}

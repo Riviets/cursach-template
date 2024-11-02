@@ -1,0 +1,27 @@
+.lesson {
+  display: flex;
+  gap: 70px;
+  background-color: #FFFEFD;
+  padding: 48px 50px;
+  border-bottom: 1px solid #948686;
+}
+.lesson__content {
+  display: flex;
+  flex-direction: column;
+}
+.lesson__name {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+.lesson__description {
+  font-size: 20px;
+  margin-bottom: auto;
+  line-height: 1.6;
+}
+.lesson__material-link {
+  display: flex;
+  gap: 26px;
+  font-size: 20px;
+  font-weight: 600;
+}/*# sourceMappingURL=lesson.css.map */

@@ -1,0 +1,20 @@
+.footer{
+    background-color: #2c2a30;
+    padding: 80px 0;
+    color: #ffffff;
+    &__inner{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__list{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        font-size: 24px;
+        text-align: left;
+    }
+    .logo{
+        max-width: 145px;
+    }
+}

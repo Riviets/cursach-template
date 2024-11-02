@@ -16,9 +16,16 @@
         font-weight: 500;
         &-item{
             transition: transform .3s;
+            
             &:hover{
                 transform: scale(1.05);
             }
+            .active{
+                border-bottom: 8px solid #ED9B00;
+            }
+        }
+        &-link{
+            padding-bottom: 20px;
         }
     }
     &__search{
@@ -41,21 +48,23 @@
             }
         }
     }
-    &__profile{
-        display: flex;
-        align-items: center;
-        gap: 44px;
-        &-img{
-            border-radius: 50%;
-            max-width: 88px;
-        }
-        &-name{
-            font-size: 28px;
-        }
-    }
+
     .logo{
         max-width: 120px;
         max-height: 120px;
         margin-right: 67px;
+    }
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 44px;
+    &-img{
+        border-radius: 50%;
+        max-width: 88px;
+    }
+    &-name{
+        font-size: 28px;
     }
 }

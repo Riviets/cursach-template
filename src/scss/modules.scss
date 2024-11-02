@@ -1,0 +1,39 @@
+.course-modules{
+    padding: 65px 0;
+}
+
+.module{
+    font-weight: 500;
+    margin-bottom: 80px;
+    border: 1px solid #948686;
+    box-shadow: 3px 3px 15px #cccccc;
+    &__header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #FFFEFD;
+        padding: 32px 45px;
+        font-size: 16px;
+        border-bottom: 1px solid #948686;
+    }
+    &__info{
+        display: flex;
+        gap: 28px;
+    }
+    &__stats{
+        display: flex;
+        gap: 26px;
+    }
+    &__toggle{
+        font-size: 20px;
+    }
+    &__description{
+        font-size: 18px;
+        background-color: #F7E0C4;
+        padding: 41px 45px;
+        border-bottom: 1px solid #948686;
+        &-text{
+            max-width: 1300px;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+.footer {
+  background-color: #2c2a30;
+  padding: 80px 0;
+  color: #ffffff;
+}
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 24px;
+  text-align: left;
+}
+.footer .logo {
+  max-width: 145px;
+}/*# sourceMappingURL=footer.css.map */

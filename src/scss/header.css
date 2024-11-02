@@ -21,6 +21,12 @@
 .header__list-item:hover {
   transform: scale(1.05);
 }
+.header__list-item .active {
+  border-bottom: 8px solid #ED9B00;
+}
+.header__list-link {
+  padding-bottom: 20px;
+}
 .header__search {
   display: flex;
   align-items: center;
@@ -44,20 +50,21 @@
 .header__search-input:focus {
   border: none;
 }
-.header__profile {
-  display: flex;
-  align-items: center;
-  gap: 44px;
-}
-.header__profile-img {
-  border-radius: 50%;
-  max-width: 88px;
-}
-.header__profile-name {
-  font-size: 28px;
-}
 .header .logo {
   max-width: 120px;
   max-height: 120px;
   margin-right: 67px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
+.profile-img {
+  border-radius: 50%;
+  max-width: 88px;
+}
+.profile-name {
+  font-size: 28px;
 }/*# sourceMappingURL=header.css.map */

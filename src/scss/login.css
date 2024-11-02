@@ -1,0 +1,112 @@
+.login {
+  padding: 46px 0;
+}
+.login__logo {
+  display: inline-block;
+  margin-bottom: 40px;
+}
+.login__logo-img {
+  width: 90px;
+  height: auto;
+}
+.login__title {
+  font-size: 60px;
+  font-weight: 600;
+  margin-bottom: 140px;
+  text-align: center;
+}
+.login__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 114px;
+}
+.login__img {
+  max-width: 600px;
+  margin-top: -250px;
+}
+.login__account-check {
+  text-align: center;
+  font-size: 32px;
+}
+.login__account-text {
+  margin-right: 8px;
+  color: #888;
+}
+.login__register-link {
+  color: #F59256;
+  text-decoration: none;
+}
+.login__register-link:hover {
+  text-decoration: underline;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 923px;
+  margin: 0 auto;
+}
+.login-form__item {
+  margin-bottom: 60px;
+}
+.login-form__label {
+  display: block;
+  margin-bottom: 26px;
+  font-weight: 500;
+  font-size: 40px;
+}
+.login-form__input {
+  width: 100%;
+  max-width: 923px;
+  padding: 22px 34px;
+  color: #000000;
+  font-size: 40px;
+  border: 1px solid #000000;
+  background-color: #F2F2F2;
+  border-radius: 20px;
+}
+.login-form__input::-moz-placeholder {
+  color: #A49F9F;
+}
+.login-form__input::placeholder {
+  color: #A49F9F;
+}
+.login-form__password-wrapper {
+  position: relative;
+}
+.login-form__password-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.login-form__eye-icon {
+  fill: #888;
+  transition: fill 0.3s ease;
+}
+.login-form__eye-icon:hover {
+  fill: #111;
+}
+.login-form__forgot-link {
+  font-size: 36px;
+  display: block;
+  text-align: right;
+  margin-bottom: 73px;
+}
+.login-form__btn {
+  padding: 28px 99px;
+  background-color: #ED9B00;
+  color: white;
+  border-radius: 40px;
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 136px;
+  transition: background-color 0.3s ease;
+}
+.login-form__btn:hover {
+  background-color: #ba7a00;
+}/*# sourceMappingURL=login.css.map */

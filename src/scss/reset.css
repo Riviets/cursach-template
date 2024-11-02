@@ -61,4 +61,5 @@ a {
 input {
   background-color: transparent;
   border: none;
+  cursor: pointer !important;
 }/*# sourceMappingURL=reset.css.map */

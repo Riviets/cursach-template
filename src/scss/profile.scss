@@ -7,6 +7,7 @@
     &-container{
         width: 100%;
         max-width: 1920px;
+        min-height: 100vh;
         margin: 0 auto;
     }
     &-content{
@@ -43,6 +44,7 @@
         width: 100%;
         max-width: 600px;
         border-right: 5px solid #FFEFE0;
+        min-height: 100vh;
 
         &__menu{
             display: flex;
@@ -73,6 +75,10 @@
                 }
             }
         }
+        &__logout-btn{
+            font-size: 32px;
+            margin-top: -30px;
+        }
     }
     &-item{
         min-height: 740px;
@@ -96,6 +102,11 @@
             }
             &-btn{
                 max-width: 320px;
+            }
+            &-item{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
             }
         }
     }
@@ -136,5 +147,10 @@
         background-color: #F5EFEF;
         border-radius: 12px;
         border: 1px solid #C4B8B8;
+        border-radius: 10px;
+        padding: 10px;
+        &.active{
+            background-color: #ED9B00;
+        }
     }
 }

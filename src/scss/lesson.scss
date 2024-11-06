@@ -25,3 +25,84 @@
         font-weight: 600;
     }
 }
+.lesson-component{
+    padding: 60px 0;
+    &__content{
+        display: flex;
+        gap: 58px;
+        justify-content: space-between;
+        margin-bottom: 44px;
+    }
+}
+.lesson-info{
+    background-color: #ffffff;
+    padding: 45px 50px;
+    max-width: 1180px;
+    &__title{
+        font-size: 36px;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+    &__description{
+        font-size: 24px;
+        margin-bottom: 90px;
+    }
+    &__resources{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        font-size: 24px;
+        margin-bottom: 80px;
+    }
+    &__link, &__download{
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    &__icon{
+        width: 100%;
+        max-width: 45px;
+    }
+    &__button{
+        padding: 18px 92px;
+    }
+}
+.lesson-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #fff;
+    width: 100%;
+    min-width: 412px;
+    padding: 20px 14px;
+    border: 1px solid #C4B8B8;
+
+    &__module {
+        padding: 34px 24px;
+    }
+
+    &__title {
+       font-size: 32px;
+       margin-bottom: 23px;
+       margin-right: -14px;
+       font-weight: 600;
+    }
+
+    &__list{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    &__lesson{
+        font-size: 20px;
+        padding: 34px 24px;
+        background-color: #F8F5F5;
+        border: 1px solid #C4B8B8;
+        &-info{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+}

@@ -1,6 +1,12 @@
 .course-modules {
   padding: 65px 0;
 }
+.course-modules__not-found {
+  text-align: center;
+  font-size: 60px;
+  font-weight: 600;
+  margin-top: 70px;
+}
 
 .module {
   font-weight: 500;

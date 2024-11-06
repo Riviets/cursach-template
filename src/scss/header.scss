@@ -1,6 +1,7 @@
 
 .header{
     background-color: #F6C25F;
+    padding: 20px 0;
     &__inner{
         display: flex;
         align-items: center;
@@ -53,6 +54,7 @@
         max-width: 120px;
         max-height: 120px;
         margin-right: 67px;
+        margin-top: -20px;
     }
 }
 

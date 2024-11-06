@@ -4,13 +4,23 @@ import logo from '../images/logo.svg';
 import loginImage from '../images/registration.png';
 import eyeClosedIcon from '../images/eye-closed.svg';
 import eyeOpenedIcon from '../images/eye-opened.svg';
+import { login } from '../services/api';
 
 function Login() {
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
+    const [username, setUsername] = useState('');  // Замінили email на username
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        try {
+            const userData = await login(username, password);  // Використовуємо username замість email
+            navigate('/');
+        } catch (err) {
+            setError('Невірний username або пароль');  // Змінено на username
+        }
     };
 
     const togglePasswordVisibility = () => {
@@ -28,18 +38,18 @@ function Login() {
 
                 <div className="login__content">
                     <form className="login-form" onSubmit={handleSubmit}>
+                        {error && <div className="error-message">{error}</div>}
                         <div className="login-form__item">
-                            <label 
-                                htmlFor="email" 
-                                className="login-form__label"
-                            >
-                                Електронна пошта
+                            <label htmlFor="username" className="login-form__label">
+                                Ім'я користувача
                             </label>
                             <input 
-                                type="email" 
-                                id="email"
+                                type="text"  // Замінили тип на text для username
+                                id="username"
                                 className="login-form__input" 
-                                placeholder="example@gmail.com"
+                                placeholder="vitalikostrovskyi"
+                                value={username}  // Використовуємо username
+                                onChange={(e) => setUsername(e.target.value)}  // Змінюємо на username
                             />
                         </div>
 
@@ -56,6 +66,8 @@ function Login() {
                                     id="password"
                                     className="login-form__input" 
                                     placeholder="password"
+                                    value={password}  // Додаємо зв'язок для пароля
+                                    onChange={(e) => setPassword(e.target.value)}  // Додаємо onChange для пароля
                                 />
                                 <button 
                                     type="button"

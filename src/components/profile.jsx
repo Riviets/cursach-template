@@ -1,9 +1,10 @@
-import React from 'react'
-import { Link, useLocation, NavLink, Outlet } from 'react-router-dom';
+import {React, useState} from 'react'
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import logo from '../images/logo.svg'
 import settings from '../images/settings.svg'
 import pfp from '../images/pfp.jpg'
 import '../scss/styles.css'
+import {logout} from '../services/api'
 
 function ProfileHeader(){
     return(
@@ -21,8 +22,32 @@ function ProfileHeader(){
     )
 }
 
-function AsideMenu(){
-    return(
+function AsideMenu() {
+    const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false);
+    const [activeItem, setActiveItem] = useState('');
+
+    const handleLogout = () => {
+        logout();
+        localStorage.removeItem('user');
+        navigate('/');
+    };
+
+    const toggleModal = () => {
+        setShowModal(!showModal);
+        if (!showModal) {
+            setActiveItem('logout');
+        } else {
+            setActiveItem('');
+        }
+    };
+
+    const handleNavLinkClick = (path) => {
+        setActiveItem(path);
+        setShowModal(false);
+    };
+
+    return (
         <div className='profile-aside'>
             <div className='pfp'>
                 <img className='pfp-img' src={pfp} alt='pfp' />
@@ -33,9 +58,10 @@ function AsideMenu(){
                     <NavLink 
                         to="/profile/basic-info"
                         className={({ isActive }) => 
-                            isActive ? 'profile-aside__menu-link active' : 'profile-aside__menu-link'
+                            isActive && activeItem !== 'logout' ? 'profile-aside__menu-link active' : 'profile-aside__menu-link'
                         }
-                        >
+                        onClick={() => handleNavLinkClick('basic-info')}
+                    >
                         Основна інформація
                     </NavLink>
                 </li>
@@ -43,9 +69,10 @@ function AsideMenu(){
                     <NavLink 
                         to="/profile/password"
                         className={({ isActive }) => 
-                            isActive ? 'profile-aside__menu-link active' : 'profile-aside__menu-link'
+                            isActive && activeItem !== 'logout' ? 'profile-aside__menu-link active' : 'profile-aside__menu-link'
                         }
-                        >
+                        onClick={() => handleNavLinkClick('password')}
+                    >
                         Пароль
                     </NavLink>
                 </li>
@@ -53,9 +80,10 @@ function AsideMenu(){
                     <NavLink 
                         to="/profile/payments"
                         className={({ isActive }) => 
-                            isActive ? 'profile-aside__menu-link active' : 'profile-aside__menu-link'
+                            isActive && activeItem !== 'logout' ? 'profile-aside__menu-link active' : 'profile-aside__menu-link'
                         }
-                        >
+                        onClick={() => handleNavLinkClick('payments')}
+                    >
                         Способи оплати
                     </NavLink>
                 </li>
@@ -63,15 +91,82 @@ function AsideMenu(){
                     <NavLink 
                         to="/profile/contacts"
                         className={({ isActive }) => 
-                            isActive ? 'profile-aside__menu-link active' : 'profile-aside__menu-link'
+                            isActive && activeItem !== 'logout' ? 'profile-aside__menu-link active' : 'profile-aside__menu-link'
                         }
-                        >
+                        onClick={() => handleNavLinkClick('contacts')}
+                    >
                         Контакти
                     </NavLink>
                 </li>
+                <li className='profile-aside__menu-item'>
+                    <div className="profile-aside__logout">
+                        <button 
+                            className={`profile-aside__menu-link profile-aside__logout-btn ${activeItem === 'logout' ? 'active' : ''}`}
+                            onClick={toggleModal}
+                        >
+                            Вийти з аккаунту
+                        </button>
+                    </div>
+                </li>
             </ul>
+
+            {showModal && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <p className="modal-text">Ви дійсно хочете вийти з аккаунту?</p>
+                        <div className="modal-buttons">
+                            <button onClick={handleLogout} className="modal-btn confirm-btn">
+                                Так
+                            </button>
+                            <button onClick={toggleModal} className="modal-btn cancel-btn">
+                                Ні
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
+}
+
+function ExitAccount() {
+    const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false);
+
+    const handleLogout = () => {
+        logout();
+        localStorage.removeItem('user');
+        navigate('/');
+    };
+
+    const toggleModal = () => {
+        setShowModal(!showModal);
+    };
+
+    return (
+        <div>
+            <button 
+                className={`exit-account-btn ${showModal ? 'active' : ''}`} 
+                onClick={toggleModal}
+            >
+                Вийти з аккаунту
+            </button>
+
+            {showModal && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <p>Ви дійсно хочете вийти з аккаунту?</p>
+                        <button onClick={handleLogout} className="modal-btn confirm-btn">
+                            Так
+                        </button>
+                        <button onClick={toggleModal} className="modal-btn cancel-btn">
+                            Ні
+                        </button>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
 }
 
 function BasicInfo() {
@@ -128,15 +223,15 @@ function Password() {
             <h2 className='profile-item__title title'>Змінити пароль</h2>
             <form className='profile-item__form'>
                 <div className='profile-item__form-item'>
-                    <label className='profile-item__form-label' for='password'>Введіть поточний пароль</label>
+                    <label className='profile-item__form-label' htmlFor='password'>Введіть поточний пароль</label>
                     <input className='profile-item__form-input input' id='password' placeholder='password'></input>
                 </div>
                 <div className='profile-item__form-item'>
-                    <label className='profile-item__form-label' for='new-password'>Введіть новий пароль</label>
+                    <label className='profile-item__form-label' htmlFor='new-password'>Введіть новий пароль</label>
                     <input className='profile-item__form-input input' id='new-password' placeholder='newPassword'></input>
                 </div>
                 <div className='profile-item__form-item'>
-                    <label className='profile-item__form-label' for='login'>Псевдонім</label>
+                    <label className='profile-item__form-label' htmlFor='login'>Псевдонім</label>
                     <input className='profile-item__form-input input' id='login' placeholder='newPassword'></input>
                 </div>
                 <button className='btn profile-item__form-btn'>Зберегти зміни</button>
@@ -144,6 +239,7 @@ function Password() {
         </div>
     )
 }
+
 function Payments() {
    return(
         <div className='profile-item'>
@@ -158,11 +254,11 @@ function Contacts() {
             <h2 className='profile-item__title title'>Контакти</h2>
             <form className='profile-item__form'>
                 <div className='profile-item__form-item'>
-                    <label className='profile-item__form-label' for='phone'>Телефон</label>
+                    <label className='profile-item__form-label' htmlFor='phone'>Телефон</label>
                     <input className='profile-item__form-input input' id='phone' placeholder='+380994832485'></input>
                 </div>
                 <div className='profile-item__form-item'>
-                    <label className='profile-item__form-label' for='email'>Електронна пошта</label>
+                    <label className='profile-item__form-label' htmlFor='email'>Електронна пошта</label>
                     <input className='profile-item__form-input input' id='email' placeholder='example@gmail.com'></input>
                 </div>
                 <button className='btn profile-item__form-btn'>Зберегти зміни</button>

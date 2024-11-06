@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  max-width: 520px;
   border: 1px solid #C4B8B8;
   padding: 45px 39px;
   transition: transform 0.3s;
   background-color: #FFFFFF;
+  width: 100%;
+  max-width: 520px;
 }
 .course__img {
   max-width: 442px;
@@ -33,14 +34,15 @@
   font-size: 16px;
   margin-bottom: 20px;
 }
-.course__rating {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+.course__status {
+  font-size: 16px;
   font-weight: 600;
+  color: #4CAF50;
 }
-.course__rating-img {
-  max-width: 30px;
+.course__price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #E91E63;
 }
 .course__description {
   font-size: 16px;
@@ -81,6 +83,8 @@
   font-size: 96px;
   margin-bottom: 50px;
   font-weight: 600;
+  text-align: center;
+  line-height: 1.3;
 }
 .course-description__content {
   display: flex;

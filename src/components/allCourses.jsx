@@ -1,69 +1,47 @@
-import React from 'react';
-import courseImg from '../images/course-img.jpg';
-import rating from '../images/rating.svg';
-
-const allCoursesData = [
-    {
-        id: 1,
-        image: courseImg,
-        progress: 'Завершено: 5 з 20 уроків',
-        category: 'Програмування',
-        title: 'JavaScript для початківців',
-        rating: 4.8,
-        duration: 'Тривалість: 30 г. 12 хв.',
-        description: 'Вивчіть основи JavaScript та почніть створювати інтерактивні веб-сайти'
-    },
-    {
-        id: 2,
-        image: courseImg,
-        progress: 'Завершено: 8 з 50 уроків',
-        category: 'Дизайн',
-        title: 'Основи графічного дизайну',
-        rating: 4.5,
-        duration: 'Тривалість: 60 г. 0 хв.',
-        description: 'Отримайте навички створення візуального контенту та макетів'
-    },
-    {
-        id: 3,
-        image: courseImg,
-        progress: 'Завершено: 5 з 20 уроків',
-        category: 'Програмування',
-        title: 'JavaScript для початківців',
-        rating: 4.8,
-        duration: 'Тривалість: 30 г. 12 хв.',
-        description: 'Вивчіть основи JavaScript та почніть створювати інтерактивні веб-сайти'
-    },
-    {
-        id: 4,
-        image: courseImg,
-        progress: 'Завершено: 8 з 50 уроків',
-        category: 'Дизайн',
-        title: 'Основи графічного дизайну',
-        rating: 4.5,
-        duration: 'Тривалість: 60 г. 0 хв.',
-        description: 'Отримайте навички створення візуального контенту та макетів'
-    },
-];
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { fetchCourses } from '../services/api.js';
 
 function AllCourses() {
+    const [courses, setCourses] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const loadCourses = async () => {
+            try {
+                const data = await fetchCourses();
+                setCourses(data);
+            } catch (error) {
+                setError("Не вдалося завантажити курси");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadCourses();
+    }, []);
+
     const renderCourses = () => {
-        return allCoursesData.map(course => (
-            <a key={course.id} className='course' href='#'>
-                <img className='course__img' src={course.image} alt='course image' />
+        return courses.map(course => (
+            <Link key={course.id} className='course' to={`/courses/${course.id}`}>
+                <img className='course__img' src={course.image_url || '../images/course-img.jpg'} alt='course image' />
                 <p className='course__progress'>{course.progress}</p>
                 <p className='course__category'>{course.category}</p>
                 <p className='course__title'>{course.title}</p>
                 <div className='course__details'>
-                    <div className='course__rating'>
-                        <img className='course__rating-img' alt='star' src={rating} />
-                        ({course.rating})
-                    </div>
-                    <p className='course__duration'>{course.duration}</p>
+                    <p className='course__status'>{course.status}</p>
+                    {course.status !== 'free' && (
+                        <p className='course__price'>{course.price} грн</p>
+                    )}
                 </div>
                 <div className='course__description'>{course.description}</div>
-            </a>
+            </Link>
         ));
     };
+
+    if (loading) return <p>Завантаження...</p>;
+    if (error) return <p>{error}</p>;
 
     return (
         <div className='all-courses'>

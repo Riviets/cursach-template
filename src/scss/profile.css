@@ -8,6 +8,7 @@
 .profile-container {
   width: 100%;
   max-width: 1920px;
+  min-height: 100vh;
   margin: 0 auto;
 }
 .profile-content {
@@ -44,6 +45,7 @@
   width: 100%;
   max-width: 600px;
   border-right: 5px solid #FFEFE0;
+  min-height: 100vh;
 }
 .profile-aside__menu {
   display: flex;
@@ -72,6 +74,10 @@
 .profile-aside__menu-link.active {
   background-color: #ED9B00;
 }
+.profile-aside__logout-btn {
+  font-size: 32px;
+  margin-top: -30px;
+}
 .profile-item {
   min-height: 740px;
   padding: 55px 70px;
@@ -96,6 +102,11 @@
 }
 .profile-item__form-btn {
   max-width: 320px;
+}
+.profile-item__form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .pfp {
@@ -134,4 +145,9 @@
   background-color: #F5EFEF;
   border-radius: 12px;
   border: 1px solid #C4B8B8;
+  border-radius: 10px;
+  padding: 10px;
+}
+.change-pfp__btn.active {
+  background-color: #ED9B00;
 }/*# sourceMappingURL=profile.css.map */

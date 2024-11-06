@@ -1,0 +1,127 @@
+.create-lesson {
+  padding: 40px;
+  background-color: #FFF6ED;
+  min-height: 100vh;
+}
+.create-lesson__title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.create-lesson__content {
+  display: flex;
+  gap: 80px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+.create-lesson__main {
+  flex: 1;
+}
+.create-lesson__media {
+  width: 400px;
+}
+.create-lesson__field {
+  margin-bottom: 24px;
+}
+.create-lesson__label {
+  display: block;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.create-lesson__input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #E5E5E5;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 24px;
+}
+.create-lesson__input::-moz-placeholder {
+  color: #999;
+}
+.create-lesson__input::placeholder {
+  color: #999;
+}
+.create-lesson__textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 16px;
+  border: 1px solid #E5E5E5;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 24px;
+  resize: none;
+}
+.create-lesson__textarea::-moz-placeholder {
+  color: #999;
+}
+.create-lesson__textarea::placeholder {
+  color: #999;
+}
+.create-lesson__files {
+  margin-bottom: 16px;
+}
+.create-lesson__file {
+  padding: 12px 16px;
+  background-color: #fff;
+  border: 1px solid #E5E5E5;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 24px;
+}
+.create-lesson__actions {
+  display: flex;
+  gap: 16px;
+}
+.create-lesson__buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+}
+.create-lesson__btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+}
+.create-lesson__btn--primary {
+  background-color: #ED9B00;
+  color: white;
+}
+.create-lesson__btn--primary:hover {
+  background-color: #d48a00;
+}
+.create-lesson__btn--secondary {
+  background-color: #fff;
+  border: 1px solid #E5E5E5;
+  color: #333;
+}
+.create-lesson__btn--secondary:hover {
+  background-color: #f5f5f5;
+}
+.create-lesson__btn--outline {
+  background-color: transparent;
+  border: 1px solid #ED9B00;
+  color: #ED9B00;
+}
+.create-lesson__btn--outline:hover {
+  background-color: rgba(237, 155, 0, 0.1);
+}
+.create-lesson__upload {
+  padding: 12px 24px;
+  background-color: #fff;
+  border: 1px solid #E5E5E5;
+  border-radius: 8px;
+  font-size: 24px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+}
+.create-lesson__upload:hover {
+  background-color: #f5f5f5;
+}/*# sourceMappingURL=create-lesson.css.map */

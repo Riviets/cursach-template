@@ -1,16 +1,34 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { getCurrentUser, logout } from '../services/api';
 import logo from '../images/logo.svg';
 import search from '../images/search.svg';
-import pfp from '../images/pfp.jpg'
+import pfp from '../images/pfp.jpg';
 import '../scss/styles.css';
 
 function Header() {
     const location = useLocation();
-    
+    const navigate = useNavigate();
+    const [user, setUser] = useState(() => {
+        const savedUser = localStorage.getItem('user');
+        return savedUser ? JSON.parse(savedUser) : null;
+    });
+
+    useEffect(() => {
+        const user = getCurrentUser();
+        setUser(user);
+    }, []);
+
+    const handleLogout = () => {
+        logout();
+        localStorage.removeItem('user');
+        setUser(null);
+        navigate('/');
+    };
+
     return (
         <div className="header">
-           <div className='container'>
+            <div className='container'>
                 <div className='header__inner'>
                     <Link to="/" className='logo'>
                         <img className='logo-img' src={logo} alt='logo' />
@@ -37,14 +55,27 @@ function Header() {
                     </nav>
                     <div className='header__search'>
                         <img className='header__search-img' alt='search' src={search} />
-                        <input className='header__search-input' type='text' placeholder='Пошук курсу' />
+                        <input className='header__search-input' type='text' placeholder='Пошук' />
                     </div>
-                    <Link to='/profile/basic-info' className='pfp'>
-                        <img className='pfp-img' src={pfp} alt='pfp' />
-                        <p className='pfp-name'>Name</p>
-                    </Link>
+                    {user ? (
+                        <div className='profile'>
+                            <Link to='/profile/basic-info' className='profile-info'>
+                                <img 
+                                    className='profile-img' 
+                                    src={user.profileImageUrl || pfp} 
+                                    alt='profile' 
+                                />
+                                <p className='profile-name'>{user.userName}</p>
+                            </Link>
+                        </div>
+                    ) : (
+                        <div className="auth-buttons">
+                            <Link to="/login" className="auth-btn auth-button">Login</Link> 
+                            <Link to="/registration" className="auth-btn auth-button">Signup</Link>
+                        </div>
+                    )}
                 </div>
-           </div>
+            </div>
         </div>
     );
 }

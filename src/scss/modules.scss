@@ -1,5 +1,11 @@
 .course-modules{
     padding: 65px 0;
+    &__not-found{
+        text-align: center;
+        font-size: 60px;
+        font-weight: 600;
+        margin-top: 70px;
+    }
 }
 
 .module{

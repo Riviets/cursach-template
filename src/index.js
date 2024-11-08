@@ -6,8 +6,12 @@ import Layout from './components/layout';
 import EmptyLayout from './components/EmptyLayout';
 import UserCourses from './components/userCourses';
 import AllCourses from './components/allCourses';
-import Profile, { BasicInfo, Password, Payments, Contacts } from './components/profile'; 
-//import Course from './components/course';
+
+import Profile from './components/Profile/Profile';
+import BasicInfo from './components/Profile/BasicInfo';
+import Password from './components/Profile/Password';
+import Payments from './components/Profile/Payments';
+import Contacts from './components/Profile/Contacts';
 
 import Course from './components/Course/Course';
 
@@ -22,6 +26,7 @@ import AssignmentDetail from './components/Assigment/AssignmentDetail';
 
 import Materials from './components/Materials/Materials';
 import MaterialDetail from './components/Materials/MaterialDetail';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

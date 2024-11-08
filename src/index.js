@@ -18,8 +18,10 @@ import ForgotPassword from './components/forgotPassword';
 import CreateLesson from './components/createLesson';
 import EditLesson from './components/editLesson';
 import { store } from './state/store';
-
 import AssignmentDetail from './components/Assigment/AssignmentDetail';
+
+import Materials from './components/Materials/Materials';
+import MaterialDetail from './components/Materials/MaterialDetail';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -34,7 +36,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="create-lesson" element={<CreateLesson />} />
             <Route path="edit-lesson" element={<EditLesson />} />
             <Route path="/assignments/:assignmentId" element={<AssignmentDetail />} />
-
+           
+            <Route path="materials" element={<Materials />} />
+            <Route path="materials/:materialId" element={<MaterialDetail />} />
           </Route>
 
           <Route path="/registration/*" element={<EmptyLayout />}>

@@ -6,6 +6,9 @@ import '../../scss/styles.css';
 import CourseDescription from './CourseDescription';
 import CourseModules from './CourseModules';
 import CourseTasks from './CourseTasks';
+import { Link } from 'react-router-dom';
+
+
 
 function Course() {
   const { id } = useParams();
@@ -46,6 +49,11 @@ function Course() {
               onClick={() => setActiveTab('tasks')}
             >
               Завдання
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/materials">
+                Матеріали
+              </Link>
             </li>
           </ul>
         </nav>

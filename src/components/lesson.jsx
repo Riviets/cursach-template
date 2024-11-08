@@ -7,6 +7,8 @@ import {
   fetchLessonFiles,
   fetchLessonLinks,
   fetchLessonsByModuleId,
+  markLessonAsCompleted,
+
 } from '../services/api/lessonApi';
 
 import {fetchModulesByCourseId } from '../services/api/courseApi'
@@ -21,7 +23,7 @@ function Lesson() {
   const [links, setLinks] = useState([]);
   const [modules, setModules] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  
   useEffect(() => {
     const loadLessonData = async () => {
       try {
@@ -85,35 +87,83 @@ function Player({ files }) {
     </div>
   );
 }
-
 function LessonInfo({ lesson, files, links }) {
+  const [isCompleted, setIsCompleted] = useState(lesson.is_completed);
+  const [buttonText, setButtonText] = useState(isCompleted ? 'Пройдено' : 'Позначити як пройдено');
+  const [buttonDisabled, setButtonDisabled] = useState(isCompleted);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleCompletion = async () => {
+      try {
+          setIsLoading(true);
+          setError(null);
+          
+          console.log('Marking lesson as completed:', lesson.id);
+          await markLessonAsCompleted(lesson.id);
+          
+          setIsCompleted(true);
+          setButtonText('Пройдено');
+          setButtonDisabled(true);
+      } catch (error) {
+          console.error('Error in handleCompletion:', error);
+          setError('Не вдалося позначити урок як пройдений');
+          
+          setButtonDisabled(false);
+          setButtonText('Позначити як пройдено');
+      } finally {
+          setIsLoading(false);
+      }
+  };
+
   return (
-    <div className="lesson-info">
-      <h2>{lesson.title}</h2>
-      <p>{lesson.content}</p>
+      <div className="lesson-info">
+          <h2>{lesson.title}</h2>
+          <p>{lesson.content}</p>
 
-      <div className="lesson-info__resources">
-        {links.map(link => (
-          <a key={link.id} href={link.link_url} target="_blank" rel="noopener noreferrer">
-            <img src={linkIcon} alt="Link icon" />
-            {link.link_url}
-          </a>
-        ))}
+          <div className="lesson-info__resources">
+              {links.map((link) => (
+                  <a 
+                      key={link.id} 
+                      href={link.link_url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="lesson-info__link"
+                  >
+                      <img src={linkIcon} alt="Link icon" className="lesson-info__icon" />
+                      {link.link_url}
+                  </a>
+              ))}
 
-        {files
-          .filter(file => file.file_type !== 'mp4')
-          .map(file => (
-            <a key={file.id} href={file.file_url} download>
-              <img src={downloadIcon} alt="Download icon" />
-              {file.file_name}
-            </a>
-          ))}
+              {files
+                  .filter((file) => file.file_type !== 'mp4')
+                  .map((file) => (
+                      <a 
+                          key={file.id} 
+                          href={file.file_url} 
+                          download 
+                          className="lesson-info__download"
+                      >
+                          <img src={downloadIcon} alt="Download icon" className="lesson-info__icon" />
+                          {file.file_name}
+                      </a>
+                  ))}
+          </div>
+
+          {error && (
+              <div className="lesson-info__error">
+                  {error}
+              </div>
+          )}
+
+          <button
+              className={`lesson-info__button ${isCompleted ? 'completed' : ''} ${isLoading ? 'loading' : ''}`}
+              onClick={handleCompletion}
+              disabled={buttonDisabled || isLoading}
+          >
+              {isLoading ? 'Збереження...' : buttonText}
+          </button>
       </div>
-
-      <button className="btn lesson-info__button">
-        {lesson.is_completed ? 'Пройдено' : 'Позначити як пройдено'}
-      </button>
-    </div>
   );
 }
 

@@ -23,6 +23,13 @@ export const fetchLessonLinks = async (lessonId) => {
 };
 
 export const markLessonAsCompleted = async (lessonId) => {
-  const response = await api.post(`/lessons/${lessonId}/complete/`);
-  return response.data;
+  try {
+      console.log('Attempting to mark lesson as completed:', lessonId);
+      const response = await api.post(`progress/lessons/${lessonId}/complete/`);
+      console.log('Response:', response.data);
+      return response.data;
+  } catch (error) {
+      console.error('Error marking lesson as completed:', error.response || error);
+      throw error;
+  }
 };

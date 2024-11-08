@@ -4,7 +4,7 @@ import logo from '../images/logo.svg'
 import settings from '../images/settings.svg'
 import pfp from '../images/pfp.jpg'
 import '../scss/styles.css'
-import {logout} from '../services/api'
+import {logout} from '../services/api/userApi'
 
 function ProfileHeader(){
     return(

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
-import { register } from '../services/api';
+import { register } from '../services/api/userApi';
 import logo from '../images/logo.svg';
 import registration from '../images/registration.png';
 import eyeClosedIcon from '../images/eye-closed.svg';

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { getCurrentUser, logout } from '../services/api';
+import { getCurrentUser, logout } from '../services/api/userApi';
 import logo from '../images/logo.svg';
 import search from '../images/search.svg';
 import pfp from '../images/pfp.jpg';

@@ -1,37 +1,106 @@
-import React from 'react';
+// components/myCourses.jsx
+import React, { useEffect, useState } from 'react';
+import { fetchUserCourses } from '../services/api/courseApi';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import courseImg from '../images/course-img.jpg';
-import rating from '../images/rating.svg';
-
-const coursesData = [
-    {
-        id: 1,
-        image: courseImg,
-        progress: 'Завершено: 17 з 34 уроків',
-        category: 'IT курси',
-        title: 'HTML/CSS Спеціаліст',
-        rating: 4.2,
-        duration: 'Тривалість: 43 г. 24 хв.',
-        description: 'Отримайте прибуткову IT-професію і станьте затребуваним HTML/CSS спеціалістом'
-    },
-];
+import rating from '../images/rating.svg'; // Переконайтеся, що шлях правильний
 
 function MyCourses() {
+    const [courses, setCourses] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const userId = useSelector((state) => state.user?.id);
+
+    useEffect(() => {
+        const loadCourses = async () => {
+            if (userId) {
+                try {
+                    const response = await fetchUserCourses(userId);
+                    setCourses(response.courses || []); // Доступ до масиву курсів з відповіді
+                } catch (error) {
+                    console.error('Не вдалося отримати курси користувача:', error);
+                    setError('Не вдалося завантажити курси');
+                } finally {
+                    setLoading(false);
+                }
+            } else {
+                setLoading(false);
+                setError('Користувач не авторизований');
+            }
+        };
+
+        loadCourses();
+    }, [userId]);
+
+    if (loading) {
+        return <p>Завантаження курсів...</p>;
+    }
+
+    if (error) {
+        return <p className="error-message">{error}</p>;
+    }
+
     const renderCourses = () => {
-        return coursesData.map(course => (
+        if (!courses.length) {
+            return <p>У вас поки немає курсів</p>;
+        }
+
+        return courses.map(course => (
             <Link key={course.id} className='course' to={`/courses/${course.id}`}>
-                <img className='course__img' src={course.image} alt='course image' />
-                <p className='course__progress'>{course.progress}</p>
-                <p className='course__category'>{course.category}</p>
-                <p className='course__title'>{course.title}</p>
-                <div className='course__details'>
-                    <div className='course__rating'>
-                        <img className='course__rating-img' alt='star' src={rating} />
-                        ({course.rating})
-                    </div>
-                    <p className='course__duration'>{course.duration}</p>
+                <div className="course__image-wrapper">
+                    <img 
+                        className='course__img' 
+                        src={course.image_url} 
+                        alt={course.title} 
+                    />
                 </div>
-                <div className='course__description'>{course.description}</div>
+                
+                <div className="course__content">
+                    <div className="course__header">
+                        <p className='course__progress'>
+                            Пройдено: {course.completed_lessons} з {course.total_lessons} уроків
+                        </p>
+                        
+                        <div className='course__categories'>
+                            {course.categories.map(category => (
+                                <span 
+                                    key={category.id} 
+                                    className='course__category'
+                                >
+                                    {category.name}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                    <h3 className='course__title'>{course.title}</h3>
+
+                    <div className='course__details'>
+                        <div className='course__meta'>
+                            {course.duration && (
+                                <p className='course__duration'>
+                                    Тривалість: {course.duration} год.
+                                </p>
+                            )}
+                            {course.status === 'premium' && (
+                                <span className="course__premium">
+                                    Premium • {course.price} грн
+                                </span>
+                            )}
+                        </div>
+                    </div>
+
+                    <p className='course__description'>{course.description}</p>
+
+                    <div className="course__progress-bar">
+                        <div 
+                            className="course__progress-fill"
+                            style={{
+                                width: `${(course.completed_lessons / course.total_lessons) * 100}%`
+                            }}
+                        />
+                    </div>
+                </div>
             </Link>
         ));
     };

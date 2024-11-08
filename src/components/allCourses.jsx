@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchCourses } from '../services/api.js';
+import { fetchCourses } from '../services/api/courseApi';
 
 function AllCourses() {
     const [courses, setCourses] = useState([]);

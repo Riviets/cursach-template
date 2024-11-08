@@ -1,0 +1,68 @@
+// scss/_course-tasks.scss
+
+.course-tasks {
+    .status-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .assignment-link {
+        &:hover {
+            .chevron-icon {
+                transform: translateX(4px);
+            }
+        }
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// Кольори для різних статусів оцінок
+.grade-badge {
+    &-excellent {
+        background-color: rgba(34, 197, 94, 0.1);
+        color: rgb(34, 197, 94);
+    }
+
+    &-good {
+        background-color: rgba(59, 130, 246, 0.1);
+        color: rgb(59, 130, 246);
+    }
+
+    &-satisfactory {
+        background-color: rgba(234, 179, 8, 0.1);
+        color: rgb(234, 179, 8);
+    }
+}
+
+// Анімації при наведенні
+.assignment-card {
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                   0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+}
+
+// Стилі для завантажувача
+.loader {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}

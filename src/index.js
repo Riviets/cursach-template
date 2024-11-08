@@ -7,7 +7,10 @@ import EmptyLayout from './components/EmptyLayout';
 import UserCourses from './components/userCourses';
 import AllCourses from './components/allCourses';
 import Profile, { BasicInfo, Password, Payments, Contacts } from './components/profile'; 
-import Course from './components/course';
+//import Course from './components/course';
+
+import Course from './components/Course/Course';
+
 import Lesson from './components/lesson';
 import Registration from './components/registration';
 import Login from './components/login';
@@ -15,6 +18,8 @@ import ForgotPassword from './components/forgotPassword';
 import CreateLesson from './components/createLesson';
 import EditLesson from './components/editLesson';
 import { store } from './state/store';
+
+import AssignmentDetail from './components/Assigment/AssignmentDetail';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -28,6 +33,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="courses/:courseId/lessons/:lessonId" element={<Lesson />} />
             <Route path="create-lesson" element={<CreateLesson />} />
             <Route path="edit-lesson" element={<EditLesson />} />
+            <Route path="/assignments/:assignmentId" element={<AssignmentDetail />} />
+
           </Route>
 
           <Route path="/registration/*" element={<EmptyLayout />}>

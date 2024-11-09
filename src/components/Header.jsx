@@ -65,6 +65,7 @@ function Header() {
                                     src={user.profileImageUrl || pfp} 
                                     alt='profile' 
                                 />
+                                
                                 <p className='profile-name'>{user.userName}</p>
                             </Link>
                         </div>

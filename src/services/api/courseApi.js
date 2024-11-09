@@ -21,3 +21,22 @@ export const fetchModulesByCourseId = async (courseId) => {
   const response = await api.get(`/modules/get_modules/${courseId}/`);
   return response.data;
 };
+
+export const fetchCourseParticipants = async (courseId) => {
+  const response = await api.get(`/course/${courseId}/participants/`);
+  return response.data;
+};
+
+export const fetchUserDetails = async (userId, role) => {
+  let endpoint = '';
+  if (role === 'student') {
+    endpoint = `/users/student/${userId}/`;
+  } else if (role === 'teacher') {
+    endpoint = `/users/teacher/${userId}/`;
+  } else if (role === 'admin') {
+    endpoint = `/users/admin/${userId}/`;
+  }
+
+  const response = await api.get(endpoint);
+  return response.data.data; 
+};

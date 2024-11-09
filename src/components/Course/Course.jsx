@@ -6,9 +6,8 @@ import '../../scss/styles.css';
 import CourseDescription from './CourseDescription';
 import CourseModules from './CourseModules';
 import CourseTasks from './CourseTasks';
+import CourseParticipants from './CourseParticipants'; // новий компонент для учасників
 import { Link } from 'react-router-dom';
-
-
 
 function Course() {
   const { id } = useParams();
@@ -22,6 +21,8 @@ function Course() {
         return <CourseModules />;
       case 'tasks':
         return <CourseTasks />;
+      case 'participants':
+        return <CourseParticipants courseId={id} />; // Передаємо courseId
       default:
         return <CourseDescription />;
     }
@@ -50,10 +51,17 @@ function Course() {
             >
               Завдання
             </li>
-            <li className="nav-item">
+            <li className="course__nav-item"
+             onClick={() => setActiveTab('participants')}>
               <Link className="nav-link" to="/materials">
                 Матеріали
               </Link>
+            </li>
+            <li 
+              className={`course__nav-item ${activeTab === 'participants' ? 'active' : ''}`}
+              onClick={() => setActiveTab('participants')}
+            >
+              Учасники
             </li>
           </ul>
         </nav>

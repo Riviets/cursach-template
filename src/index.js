@@ -27,7 +27,6 @@ import AssignmentDetail from './components/Assigment/AssignmentDetail';
 import Materials from './components/Materials/Materials';
 import MaterialDetail from './components/Materials/MaterialDetail';
 
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>

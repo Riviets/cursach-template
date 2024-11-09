@@ -28,9 +28,17 @@ export const register = async (userData) => {
 
 export const getUserById = async (userId) => {
   try {
-      console.log('Fetching user data for ID:', userId);
       const response = await api.get(`/users/student/${userId}/`);
-      console.log('API Response:', response.data);
+      
+      if (response.data) {
+          // Оновлюємо дані в localStorage при кожному успішному запиті
+          const currentUser = JSON.parse(localStorage.getItem('user'));
+          localStorage.setItem('user', JSON.stringify({
+              ...currentUser,
+              ...response.data.data
+          }));
+      }
+      
       return response.data;
   } catch (error) {
       console.error('Error in getUserById:', error);
@@ -40,10 +48,20 @@ export const getUserById = async (userId) => {
 
 export const updateUserProfile = async (userId, userData) => {
   try {
-      console.log('Updating profile for user:', userId, 'with data:', userData);
+      console.log('Updating profile with data:', userData);
       const response = await api.post(`/users/update-profile/${userId}/`, userData);
-      console.log('Update response:', response.data);
-      return response.data;
+      console.log('Update response:', response);
+      
+      if (response.data) {
+          // Оновлюємо дані користувача в localStorage
+          const currentUser = JSON.parse(localStorage.getItem('user'));
+          localStorage.setItem('user', JSON.stringify({
+              ...currentUser,
+              ...response.data
+          }));
+      }
+      
+      return response;
   } catch (error) {
       console.error('Error in updateUserProfile:', error);
       throw error;

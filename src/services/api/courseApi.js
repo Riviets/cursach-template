@@ -1,5 +1,3 @@
-// services/api/courseApi.js
-
 import { api } from './api';
 
 export const fetchCourses = async () => {
@@ -39,4 +37,10 @@ export const fetchUserDetails = async (userId, role) => {
 
   const response = await api.get(endpoint);
   return response.data.data; 
+};
+
+
+export const enrollInCourse = async (enrollmentData) => {
+  const response = await api.post('/enrollments/enroll/', enrollmentData);
+  return response.data;
 };

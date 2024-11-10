@@ -28,29 +28,6 @@
 .header__list-link {
   padding-bottom: 20px;
 }
-.header__search {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-right: 100px;
-}
-.header__search-img {
-  max-width: 60px;
-}
-.header__search-input {
-  font-size: 24px;
-  padding: 10px 20px;
-  max-width: 165px;
-}
-.header__search-input::-moz-placeholder {
-  color: #000000;
-}
-.header__search-input::placeholder {
-  color: #000000;
-}
-.header__search-input:focus {
-  border: none;
-}
 .header .logo {
   max-width: 120px;
   max-height: 120px;

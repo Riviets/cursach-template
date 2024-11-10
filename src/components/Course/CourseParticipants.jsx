@@ -1,4 +1,3 @@
-// components/Course/CourseParticipants.jsx
 import React, { useEffect, useState } from 'react';
 import { fetchCourseParticipants, fetchUserDetails } from '../../services/api/courseApi';
 import { User, Users, ShieldCheck, GraduationCap, X, Mail, Phone } from 'lucide-react';

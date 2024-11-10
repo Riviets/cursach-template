@@ -1,5 +1,3 @@
-// components/Profile/Profile.jsx
-
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import ProfileHeader from './ProfileHeader';

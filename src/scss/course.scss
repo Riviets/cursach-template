@@ -48,6 +48,17 @@
         font-size: 16px;
         max-width: 442px;
         line-height: 1.2;
+
+    }
+    &__category{
+        margin-bottom: 0;
+    }
+    &__categories{
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 16px;
+        margin-bottom: 15px;
     }
     &:hover {
         transform: scale(1.05);
@@ -58,10 +69,11 @@
         padding: 35px 0;
     }
     &__nav{
+        margin-bottom: 80px;
         &-list{
             display: flex;
             justify-content: space-between;
-            max-width: 700px;
+            max-width: 1000px;
             margin: 0 auto;
             font-size: 36px;
             font-weight: 600;
@@ -107,6 +119,20 @@
         border-radius: 128px;
         border-bottom-right-radius: 0px;
         margin-bottom: 90px;
+    }
+    &__btn{
+        font-size: 36px;
+        color: #ffffff;
+        background-color: #df9100;
+        padding: 20px 70px;
+        border-radius: 20px;
+        transition: transform .3s;
+        &--disabled{
+            background-color: #959595;
+        }
+        &:hover{
+            transform: scale(1.05);
+        }
     }
     &__teachers{
         display: flex;

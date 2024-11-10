@@ -1,10 +1,8 @@
-// components/Course/LessonItem.jsx
-
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 function LessonItem({ lesson }) {
-  const { id: courseId } = useParams(); // Отримуємо ID курсу з URL
+  const { id: courseId } = useParams();
 
   return (
     <Link 

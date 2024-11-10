@@ -1,5 +1,3 @@
-// components/Course/CourseModules.jsx
-
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchModulesByCourseId } from '../../services/api/courseApi';

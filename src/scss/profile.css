@@ -5,6 +5,9 @@
   align-items: start;
   background-color: #EAD7C5;
 }
+.profile-info {
+  min-height: 88px;
+}
 .profile-container {
   width: 100%;
   max-width: 1920px;
@@ -13,6 +16,12 @@
 }
 .profile-content {
   display: flex;
+}
+.profile-img {
+  height: 100%;
+  width: 100%;
+  max-width: 88px;
+  min-height: 88px;
 }
 .profile-header {
   width: 100%;
@@ -46,6 +55,12 @@
   max-width: 600px;
   border-right: 5px solid #FFEFE0;
   min-height: 100vh;
+}
+.profile-aside__user {
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 .profile-aside__menu {
   display: flex;
@@ -82,6 +97,11 @@
   min-height: 740px;
   padding: 55px 70px;
 }
+.profile-item__section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
 .profile-item__form {
   display: flex;
   flex-direction: column;
@@ -117,7 +137,10 @@
 .pfp-img {
   border-radius: 50%;
   border: 4px solid #ABA29A;
+  width: 100%;
+  height: 100%;
   max-width: 88px;
+  max-height: 88px;
 }
 .pfp-name {
   font-size: 28px;
@@ -133,11 +156,6 @@
 }
 .change-pfp__text {
   margin-bottom: 26px;
-}
-.change-pfp__img {
-  border-radius: 50%;
-  border: 6px solid #ABA29A;
-  min-width: 130px;
 }
 .change-pfp__btn {
   font-size: 22px;

@@ -1,5 +1,3 @@
-// components/login.jsx
-
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -21,7 +19,7 @@ function Login() {
         e.preventDefault();
         try {
             const data = await login(username, password);
-            dispatch(setUser(data));  // Store user info in Redux
+            dispatch(setUser(data));
             navigate('/');
         } catch (err) {
             setError('Невірний username або пароль');

@@ -29,26 +29,7 @@
             padding-bottom: 20px;
         }
     }
-    &__search{
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin-right: 100px;
-        &-img{
-            max-width: 60px;
-        }
-        &-input{
-            font-size: 24px;
-            padding: 10px 20px;
-            max-width: 165px;
-            &::placeholder{
-                color: #000000;
-            }
-            &:focus{
-                border: none;
-            }
-        }
-    }
+    
 
     .logo{
         max-width: 120px;

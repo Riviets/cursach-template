@@ -1,9 +1,8 @@
-// components/myCourses.jsx
 import React, { useEffect, useState } from 'react';
 import { fetchUserCourses } from '../services/api/courseApi';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import rating from '../images/rating.svg'; // Переконайтеся, що шлях правильний
+import rating from '../images/rating.svg';
 
 function MyCourses() {
     const [courses, setCourses] = useState([]);
@@ -16,7 +15,7 @@ function MyCourses() {
             if (userId) {
                 try {
                     const response = await fetchUserCourses(userId);
-                    setCourses(response.courses || []); // Доступ до масиву курсів з відповіді
+                    setCourses(response.courses || []);
                 } catch (error) {
                     console.error('Не вдалося отримати курси користувача:', error);
                     setError('Не вдалося завантажити курси');

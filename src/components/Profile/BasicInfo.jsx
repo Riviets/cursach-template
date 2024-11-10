@@ -1,4 +1,3 @@
-// components/Profile/BasicInfo.jsx
 import React, { useState, useEffect } from 'react';
 import { getUserById, updateUserProfile, uploadProfileImage } from '../../services/api/userApi';
 import { User } from 'lucide-react';
@@ -28,13 +27,11 @@ function BasicInfo() {
         const response = await getUserById(userId);
         console.log('API Response:', response);
 
-        // Перевіряємо структуру відповіді і отримуємо правильні дані
         if (response && response.data) {
           const userDataFromApi = response.data;
           console.log('Setting user data:', userDataFromApi);
           setUserData(userDataFromApi);
 
-          // Оновлюємо дані в localStorage
           localStorage.setItem('user', JSON.stringify(userDataFromApi));
         } else {
           console.error('Invalid response structure:', response);
@@ -149,26 +146,8 @@ function BasicInfo() {
           )}
           
           <div className="change-pfp">
-              {userData?.profile_image_url ? (
-                  <img 
-                      className="profile-img" 
-                      alt="profile" 
-                      src={userData.profile_image_url}
-                      onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.style.display = 'none';
-                          const placeholder = document.createElement('div');
-                          placeholder.className = 'change-pfp__placeholder';
-                          e.target.parentNode.appendChild(placeholder);
-                      }}
-                  />
-              ) : (
-                  <div className="change-pfp__placeholder">
-                      <User className="w-16 h-16 text-gray-400" />
-                  </div>
-              )}
               <div className="change-pfp__content">
-                  <p className="change-pfp__text">Завантажте вашу фотографію</p>
+                  <p className="change-pfp__text">Змінити фото профіля</p>
                   <input
                       type="file"
                       id="file-upload"
@@ -188,7 +167,6 @@ function BasicInfo() {
 
           <form className="profile-item__form" onSubmit={handleSaveChanges}>
               <div className="profile-item__section">
-                  <h3 className="profile-item__subtitle">Особиста інформація</h3>
                   <div className="profile-item__form-item">
                       <label className="profile-item__form-label" htmlFor="first-name">
                           Ім'я
@@ -230,7 +208,6 @@ function BasicInfo() {
               </div>
 
               <div className="profile-item__section">
-                  <h3 className="profile-item__subtitle">Контактна інформація</h3>
                   <div className="profile-item__form-item">
                       <label className="profile-item__form-label" htmlFor="phone">
                           Телефон

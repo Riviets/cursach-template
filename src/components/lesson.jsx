@@ -1,5 +1,3 @@
-// components/lesson.jsx
-
 import React, { useState, useEffect } from 'react';
 import { useParams, Link} from 'react-router-dom';
 import {
@@ -89,7 +87,7 @@ function Player({ files }) {
 }
 function LessonInfo({ lesson, files, links }) {
   const [isCompleted, setIsCompleted] = useState(lesson.is_completed);
-  const [buttonText, setButtonText] = useState(isCompleted ? 'Пройдено' : 'Позначити як пройдено');
+  const [buttonText, setButtonText] = useState(isCompleted ? 'Виконано' : 'Позначити як виконаний');
   const [buttonDisabled, setButtonDisabled] = useState(isCompleted);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);

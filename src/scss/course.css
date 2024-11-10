@@ -49,6 +49,16 @@
   max-width: 442px;
   line-height: 1.2;
 }
+.course__category {
+  margin-bottom: 0;
+}
+.course__categories {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
 .course:hover {
   transform: scale(1.05);
 }
@@ -56,10 +66,13 @@
 .course-info {
   padding: 35px 0;
 }
+.course__nav {
+  margin-bottom: 80px;
+}
 .course__nav-list {
   display: flex;
   justify-content: space-between;
-  max-width: 700px;
+  max-width: 1000px;
   margin: 0 auto;
   font-size: 36px;
   font-weight: 600;
@@ -104,6 +117,20 @@
   border-radius: 128px;
   border-bottom-right-radius: 0px;
   margin-bottom: 90px;
+}
+.course-description__btn {
+  font-size: 36px;
+  color: #ffffff;
+  background-color: #df9100;
+  padding: 20px 70px;
+  border-radius: 20px;
+  transition: transform 0.3s;
+}
+.course-description__btn--disabled {
+  background-color: #959595;
+}
+.course-description__btn:hover {
+  transform: scale(1.05);
 }
 .course-description__teachers {
   display: flex;

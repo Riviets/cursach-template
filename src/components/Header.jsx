@@ -53,10 +53,6 @@ function Header() {
                             </li>
                         </ul>
                     </nav>
-                    <div className='header__search'>
-                        <img className='header__search-img' alt='search' src={search} />
-                        <input className='header__search-input' type='text' placeholder='Пошук' />
-                    </div>
                     {user ? (
                         <div className='profile'>
                             <Link to='/profile/basic-info' className='profile-info'>

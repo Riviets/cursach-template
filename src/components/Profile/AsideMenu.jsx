@@ -1,8 +1,10 @@
-// components/Profile/AsideMenu.jsx
 import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { logout, getUserById } from '../../services/api/userApi';
 import { User } from 'lucide-react';
+import { useDispatch } from 'react-redux';
+import { clearUser } from '../../state/userSlice';
+
 
 function AsideMenu() {
     const navigate = useNavigate();
@@ -13,6 +15,8 @@ function AsideMenu() {
         const storedUser = localStorage.getItem('user');
         return storedUser ? JSON.parse(storedUser) : null;
     });
+    const dispatch = useDispatch();
+
 
     useEffect(() => {
         const loadUserData = async () => {
@@ -33,7 +37,7 @@ function AsideMenu() {
     }, [userData?.id]);
 
     const handleLogout = () => {
-        logout();
+        dispatch(clearUser());
         localStorage.removeItem('user');
         navigate('/');
     };
@@ -56,7 +60,6 @@ function AsideMenu() {
     return (
         <div className="profile-aside">
             <div className="profile-aside__user">
-               
                     {!showPlaceholder && userData?.profile_image_url ? (
                         <img 
                             className="profile-img" 
@@ -69,16 +72,13 @@ function AsideMenu() {
                             <User size={24} className="text-gray-400" />
                         </div>
                     )}
+                    <div className="profile-aside__user-info">
+                        <p className="profile-aside__username">
+                            {userData?.username || 'Користувач'}
+                        </p>
+                    </div>
                 </div>
-                <div className="profile-aside__user-info">
-                    <p className="profile-aside__username">
-                        {userData?.username || 'Користувач'}
-                    </p>
-                    {userData?.email && (
-                        <p className="profile-aside__email">{userData.email}</p>
-                    )}
-              
-            </div>
+                
             
             <nav className="profile-aside__nav">
                 <ul className="profile-aside__menu">
@@ -130,9 +130,9 @@ function AsideMenu() {
 
             {showModal && (
                 <div className="modal">
-                    <div className="modal-content">
-                        <p className="modal-text">Ви дійсно хочете вийти з аккаунту?</p>
-                        <div className="modal-buttons">
+                    <div className="modal__content">
+                        <p className="modal__text">Ви дійсно хочете вийти з аккаунту?</p>
+                        <div className="modal__buttons">
                             <button onClick={handleLogout} className="modal-btn confirm-btn">
                                 Так
                             </button>

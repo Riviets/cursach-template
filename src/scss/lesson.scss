@@ -38,6 +38,7 @@
     background-color: #ffffff;
     padding: 45px 50px;
     max-width: 1180px;
+
     &__title{
         font-size: 36px;
         margin-bottom: 20px;
@@ -51,7 +52,7 @@
         display: flex;
         flex-direction: column;
         gap: 30px;
-        font-size: 24px;
+        font-size: 18px;
         margin-bottom: 80px;
     }
     &__link, &__download{
@@ -66,6 +67,18 @@
     &__button{
         padding: 18px 92px;
     }
+    &__link{
+        max-width: 400px;
+    }
+    h2{
+        font-size: 48px;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+    p{
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
 }
 .lesson-aside {
     display: flex;
@@ -79,6 +92,17 @@
 
     &__module {
         padding: 34px 24px;
+        h3{
+            font-size: 34px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        ul{
+            font-size: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
     }
 
     &__title {
@@ -103,6 +127,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+
         }
     }
 }
